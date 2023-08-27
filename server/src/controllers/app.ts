@@ -1,6 +1,5 @@
 const express   = require('express')
 const parser    = require('body-parser')
-const BookMod   = require('../models/book')
 const Routes    = require('../routes/routes')
 const server    = express()
 
