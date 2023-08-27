@@ -1,12 +1,14 @@
 const Express = require('express')
+const BookC   = require('../models/book')
+const AuthorC = require('../models/author')
 const router  = Express.Router()
-
-const books: any = []
+const books:   any = []
 const authors: any = []
 
+// Registrar un nuevo libro
 router.post('/books', (req: any, res: any) => {
   const { id, title, chapters, pages, authors } = req.body
-  const book = new Book({ id, title, chapters, pages, authors })
+  const book = new BookC({ id, title, chapters, pages, authors })
   books.push(book)
   res.status(201).json(book)
 })
@@ -19,7 +21,7 @@ router.get('/books', (req: any, res: any) => {
 // Crear un autor
 router.post('/authors', (req: any, res: any) => {
   const { id, name } = req.body
-  const author = new Author({ id, name })
+  const author = new AuthorC({ id, name })
   authors.push(author)
   res.status(201).json(author)
 })
